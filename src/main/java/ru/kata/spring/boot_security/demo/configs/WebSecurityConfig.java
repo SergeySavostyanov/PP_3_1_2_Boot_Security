@@ -25,9 +25,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected void configure(HttpSecurity http) throws Exception{
-        // конфяигурация спринг секьюрити и авторизацию
+        // конфигурация спринг секьюрити и авторизацию
         http.authorizeRequests()
-                .antMatchers("/auth/login","/error","/auth/registration").permitAll() //страницы доступные для гсотей
+                .antMatchers("/auth/login","/error","/auth/registration").permitAll()
+                .antMatchers("/user-update").hasRole("ADMIN")//страницы доступные для гсотей
                 .anyRequest().hasAnyRole("USER","ADMIN")
                 .and()
                 .formLogin().loginPage("/auth/login")

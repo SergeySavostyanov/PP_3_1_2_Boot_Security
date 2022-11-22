@@ -1,8 +1,6 @@
 package ru.kata.spring.boot_security.demo.model;
 
 import lombok.Data;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
 
 
@@ -35,15 +33,11 @@ public class Person {
     public Person() {
     }
 
-
     public Person(String firstName, String lastName, Integer age, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.email = email;
     }
-
-
-
 }
 
