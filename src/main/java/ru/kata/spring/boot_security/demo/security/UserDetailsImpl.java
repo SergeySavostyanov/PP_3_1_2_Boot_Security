@@ -12,26 +12,26 @@ import java.util.Collections;
 
 public class UserDetailsImpl implements UserDetails {
     @Getter
-    private final User person;
+    private final User user;
 
-    public UserDetailsImpl(User person) {
-        this.person = person;
+    public UserDetailsImpl(User user) {
+        this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
-        return Collections.singletonList(new SimpleGrantedAuthority(person.getRole()));
+        return Collections.singletonList(new SimpleGrantedAuthority(user.getRole()));
     }
 
     @Override
     public String getPassword() {
-        return this.person.getPassword();
+        return this.user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.person.getEmail();
+        return this.user.getEmail();
     }
 
     @Override

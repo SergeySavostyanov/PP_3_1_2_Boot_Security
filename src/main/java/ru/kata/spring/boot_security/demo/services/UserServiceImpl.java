@@ -8,30 +8,30 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserRepository peopleRepository;
+    private UserRepository userRepository;
     public UserServiceImpl(UserRepository peopleRepository) {
-        this.peopleRepository = peopleRepository;
+        this.userRepository = peopleRepository;
     }
 
     @Override
     public User getById(Long id) {
-        return peopleRepository.findById(id).orElse(null);
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<User> listUsers() {
-        return peopleRepository.findAll();
+        return userRepository.findAll();
     }
 
     @Transactional
     @Override
     public void saveUser(User person) {
-        peopleRepository.save(person);
+        userRepository.save(person);
     }
     @Transactional
     @Override
     public void removeUser(Long id) {
-        peopleRepository.deleteById(id);
+        userRepository.deleteById(id);
     }
 
 }
