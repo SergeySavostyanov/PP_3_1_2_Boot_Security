@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Введите данные пользователя</h1>
-<form action="#" th:action="@{/admin/add}" th:object="${person}" method="post">
+<form action="#" th:action="@{/admin/add}" th:object="${user}" method="post">
 
     <p>Имя: <input type="text" th:field="*{firstName}" /></p>
     <p>Фамилия: <input type="text" th:field="*{lastName}" /></p>

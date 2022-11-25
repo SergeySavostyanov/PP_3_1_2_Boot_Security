@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.kata.spring.boot_security.demo.model.Person;
+import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.services.RegistrationService;
 import ru.kata.spring.boot_security.demo.util.PersonValidator;
 
@@ -30,18 +30,18 @@ public class AuthController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("person") Person person) {
+    public String registrationPage(@ModelAttribute("person") User user) {
 
         return "auth/registration";
     }
 
     @PostMapping("/registration")
-    public String performRegistration(@ModelAttribute("person") @Valid Person person,
+    public String performRegistration(@ModelAttribute("person") @Valid User user,
                                       BindingResult bindingResult) {
-        personValidator.validate(person, bindingResult);
+        personValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors())
             return "redirect:/auth/registration";
-        registrationService.register(person);
+        registrationService.register(user);
         return "redirect:/auth/login";
     }
 }

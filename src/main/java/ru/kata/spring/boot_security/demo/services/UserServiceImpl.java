@@ -1,31 +1,31 @@
 package ru.kata.spring.boot_security.demo.services;
 import org.springframework.stereotype.Service;
-import ru.kata.spring.boot_security.demo.model.Person;
-import ru.kata.spring.boot_security.demo.repositories.PeopleRepository;
+import ru.kata.spring.boot_security.demo.model.User;
+import ru.kata.spring.boot_security.demo.repositories.UserRepository;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class PersonServiceImpl implements PersonService {
-    private PeopleRepository peopleRepository;
-    public PersonServiceImpl(PeopleRepository peopleRepository) {
+public class UserServiceImpl implements UserService {
+    private UserRepository peopleRepository;
+    public UserServiceImpl(UserRepository peopleRepository) {
         this.peopleRepository = peopleRepository;
     }
 
     @Override
-    public Person getById(Long id) {
+    public User getById(Long id) {
         return peopleRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Person> listUsers() {
+    public List<User> listUsers() {
         return peopleRepository.findAll();
     }
 
     @Transactional
     @Override
-    public void saveUser(Person person) {
+    public void saveUser(User person) {
         peopleRepository.save(person);
     }
     @Transactional

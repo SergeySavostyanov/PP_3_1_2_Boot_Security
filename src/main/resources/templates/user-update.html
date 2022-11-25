@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>Введите новые данные пользователя</h1>
-<form action="#" th:action="@{/user-update}" th:object="${person}" method="post">
+<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
     <label for="id">ID</label>
     <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
     <br/>

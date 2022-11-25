@@ -25,15 +25,15 @@
             <th>Изменить</th>
             <th>Удалить</th>
         </tr>
-        <tr th:each ="person : ${listUsers}">
-            <td th:utext="${person.getId()}">...</td>
-            <td th:utext="${person.getFirstName()}">...</td>
-            <td th:utext="${person.getLastName()}">...</td>
-            <td th:utext="${person.getAge()}">...</td>
-            <td th:utext="${person.getEmail()}">...</td>
-            <td th:utext="${person.getRole()}">...</td>
-            <td><a th:href="@{/user-update/{id}(id=${person.getId})}">Изменить</a></td>
-            <td><a th:href="@{/delete(id=${person.getId()})}">Удалить</a></td>
+        <tr th:each ="user : ${listUsers}">
+            <td th:utext="${user.getId()}">...</td>
+            <td th:utext="${user.getFirstName()}">...</td>
+            <td th:utext="${user.getLastName()}">...</td>
+            <td th:utext="${user.getAge()}">...</td>
+            <td th:utext="${user.getEmail()}">...</td>
+            <td th:utext="${user.getRole()}">...</td>
+            <td><a th:href="@{/user-update/{id}(id=${user.getId})}">Изменить</a></td>
+            <td><a th:href="@{/delete(id=${user.getId()})}">Удалить</a></td>
         </tr>
     </table>
 </div>
